@@ -6,6 +6,8 @@ import connectToDb from './config/database.js';
 import loginRoute from './routes/loginRoute.js';
 import registerRoute from './routes/registerRoute.js';
 import userRoute from './routes/userRoute.js';
+import budgetRoute from './routes/budgetRoute.js';
+import categoryRoute from './routes/categoryRoute.js';
 import auth from './middleware/auth.js';
 
 dotenv.config();
@@ -19,6 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes.register, registerRoute);
 app.use(routes.login, loginRoute);
 app.use(routes.user, auth, userRoute);
+app.use(routes.budget, auth, budgetRoute);
+app.use(routes.category, auth, categoryRoute);
 
 const { API_PORT } = process.env;
 const port = API_PORT || 9009;

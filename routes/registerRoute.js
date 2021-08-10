@@ -37,11 +37,7 @@ router.post('/', async (req, res) => {
       },
     );
 
-    console.log('token: ', token);
-
     user.token = token;
-
-    console.log('user: ', user);
 
     res.status(201).json(user);
   } catch (err) {
